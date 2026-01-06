@@ -1,0 +1,310 @@
+/* Cake Shop Custom Styles */
+:root {
+  --apricot: #FF9E6D;
+  --strawberry: #FF6B8B;
+  --lavender: #9D5CFF;
+  --cream: #FFF9F5;
+  --chocolate: #4A2C2A;
+}
+
+body {
+  background-color: var(--cream);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap');
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-rounded {
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Glass Effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--apricot), var(--strawberry), var(--lavender));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Button */
+.btn-frosting {
+  background: linear-gradient(135deg, var(--apricot), var(--strawberry));
+  border: none;
+  color: white;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-frosting:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 107, 139, 0.4);
+  color: white;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Custom Bootstrap Overrides */
+:root {
+  --apricot: #FF9E6D;
+  --strawberry: #FF6B8B;
+  --lavender: #9D5CFF;
+  --cream: #FFF9F5;
+  --chocolate: #4A2C2A;
+  --sprinkle-blue: #6ECBF5;
+  --sprinkle-pink: #FF9BC9;
+}
+
+/* Custom Utility Classes */
+.bg-apricot { background-color: var(--apricot) !important; }
+.bg-strawberry { background-color: var(--strawberry) !important; }
+.bg-lavender { background-color: var(--lavender) !important; }
+.bg-cream { background-color: var(--cream) !important; }
+.bg-chocolate { background-color: var(--chocolate) !important; }
+
+.text-apricot { color: var(--apricot) !important; }
+.text-strawberry { color: var(--strawberry) !important; }
+.text-lavender { color: var(--lavender) !important; }
+.text-cream { color: var(--cream) !important; }
+.text-chocolate { color: var(--chocolate) !important; }
+
+.btn-outline-apricot {
+  color: var(--apricot);
+  border-color: var(--apricot);
+}
+
+.btn-outline-apricot:hover {
+  background-color: var(--apricot);
+  color: white;
+}
+
+.btn-outline-chocolate {
+  color: var(--chocolate);
+  border-color: var(--chocolate);
+}
+
+.btn-outline-chocolate:hover {
+  background-color: var(--chocolate);
+  color: white;
+}
+
+/* Hover Effects */
+.hover-opacity-100:hover {
+  opacity: 1 !important;
+}
+
+/* Gallery Specific Styles */
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/* Custom Scrollbar for Filters */
+.filter-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+
+.filter-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filter-scroll::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+  border-radius: 3px;
+}
+
+.filter-scroll::-webkit-scrollbar-thumb {
+  background: var(--apricot);
+  border-radius: 3px;
+}
+
+/* Price Range Slider Customization */
+input[type="range"]::-webkit-slider-thumb {
+  background: var(--apricot);
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: var(--apricot);
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Badge Animations */
+.badge {
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+}
+
+/* Card Hover Effects */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+}
+
+/* Builder Page Specific Styles */
+
+/* Canvas Styling */
+canvas {
+  touch-action: none; /* Prevent scrolling on touch devices */
+}
+
+/* Color Input Styling */
+.form-control-color {
+  height: 50px;
+  padding: 2px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Button Groups for Builder */
+.btn-group-builder .btn {
+  transition: all 0.3s ease;
+}
+
+.btn-group-builder .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Color Preview Circles */
+.color-preview {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.color-preview:hover {
+  transform: scale(1.1);
+}
+
+/* Step Indicators */
+.step-indicator {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+/* Template Cards */
+.template-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.template-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Custom Button Colors */
+.btn-sprinkle-blue {
+  background-color: var(--sprinkle-blue) !important;
+  border-color: var(--sprinkle-blue) !important;
+  color: white !important;
+}
+
+.btn-outline-sprinkle-blue {
+  color: var(--sprinkle-blue) !important;
+  border-color: var(--sprinkle-blue) !important;
+}
+
+.btn-outline-sprinkle-blue:hover {
+  background-color: var(--sprinkle-blue) !important;
+  color: white !important;
+}
+
+.btn-lavender {
+  background-color: var(--lavender) !important;
+  border-color: var(--lavender) !important;
+  color: white !important;
+}
+
+.btn-outline-lavender {
+  color: var(--lavender) !important;
+  border-color: var(--lavender) !important;
+}
+
+.btn-outline-lavender:hover {
+  background-color: var(--lavender) !important;
+  color: white !important;
+}
+
+/* Progress Bar */
+.builder-progress {
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--cream);
+  overflow: hidden;
+}
+
+.builder-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--apricot), var(--strawberry));
+  transition: width 0.5s ease;
+}
+
+/* Color Swatches */
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.color-swatch.active {
+  border-color: var(--chocolate);
+  transform: scale(1.1);
+}
