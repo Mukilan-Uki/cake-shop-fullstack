@@ -13,18 +13,31 @@ export const apiService = {
   },
 
   async createOrder(orderData) {
-    try {
-      const response = await fetch(`${API_BASE_URL}/orders`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderData)
-      });
-      return await response.json();
-    } catch (error) {
-      console.error('Error creating order:', error);
-      return { success: false, message: 'Failed to create order' };
+  try {
+    console.log('Sending order data:', orderData); // For debugging
+    
+    const response = await fetch(`${API_BASE_URL}/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    });
+    
+    const result = await response.json();
+    console.log('Order creation response:', result); // For debugging
+    
+    if (!response.ok) {
+      throw new Error(result.message || 'Failed to create order');
     }
-  },
+    
+    return result;
+  } catch (error) {
+    console.error('Error creating order:', error);
+    return { 
+      success: false, 
+      message: error.message || 'Failed to create order. Please check if backend is running.' 
+    };
+  }
+},
 
   async updateOrderStatus(orderId, status) {
     try {

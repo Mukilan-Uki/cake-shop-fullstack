@@ -18,38 +18,65 @@ const OrderPage = () => {
     paymentMethod: 'cash'
   });
 
+  const validateForm = () => {
+  const errors = [];
   
+  if (!orderDetails.customerName.trim()) errors.push('Name is required');
+  if (!orderDetails.phone.trim()) errors.push('Phone is required');
+  if (!orderDetails.email.trim()) errors.push('Email is required');
+  if (!orderDetails.deliveryDate) errors.push('Delivery date is required');
+  
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (orderDetails.email && !emailRegex.test(orderDetails.email)) {
+    errors.push('Invalid email format');
+  }
+  
+  return errors;
+};
 
   const handleSubmit = async (e) => {
   e.preventDefault();
+
+  const errors = validateForm();
+  if (errors.length > 0) {
+    alert(`Please fix the following errors:\n${errors.join('\n')}`);
+    return;
+  }
+  
+  // Format deliveryDate as ISO string
+  const formattedDate = new Date(orderDetails.deliveryDate).toISOString();
   
   const orderData = {
     ...design,
     ...orderDetails,
+    deliveryDate: formattedDate, // Send as ISO string
     status: 'Pending',
-    totalPrice: calculateTotalPrice()
+    totalPrice: calculateTotalPrice(),
+    // Add missing fields that the Order model expects
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   };
 
-  // Remove sensitive fields if needed
+  // Remove any fields that shouldn't be sent
   delete orderData.password;
   
   try {
     const result = await apiService.createOrder(orderData);
     
     if (result.success) {
-        // Clear draft design
-        localStorage.removeItem('cakeDesignDraft');
-        localStorage.setItem('currentOrder', JSON.stringify(result.order));
-        navigate('/success', { state: { order: result.order } });
-      } else {
-        alert('Failed to create order: ' + result.message);
-      }
-    } catch (error) {
-      console.error('Error creating order:', error);
-      alert('Error creating order. Please try again.');
+      // Clear draft design
+      localStorage.removeItem('cakeDesignDraft');
+      localStorage.setItem('currentOrder', JSON.stringify(result.order));
+      navigate('/success', { state: { order: result.order } });
+    } else {
+      alert('Failed to create order: ' + result.message);
     }
-  };
-
+  } catch (error) {
+    console.error('Error creating order:', error);
+    alert('Error creating order. Please try again.');
+  }
+};
 const calculateTotalPrice = () => {
   // Use actual design pricing
   const basePrice = 39.99;

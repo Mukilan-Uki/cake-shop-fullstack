@@ -67,6 +67,7 @@ router.get('/orders/status/:status', async (req, res) => {
 });
 
 // Create new order
+// Create new order
 router.post('/orders', async (req, res) => {
   try {
     // Generate order ID
@@ -75,8 +76,15 @@ router.post('/orders', async (req, res) => {
     const orderData = {
       ...req.body,
       orderId: orderId,
-      status: 'Pending'
+      status: 'Pending',
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
+    
+    // Convert deliveryDate string to Date object if it's a string
+    if (typeof orderData.deliveryDate === 'string') {
+      orderData.deliveryDate = new Date(orderData.deliveryDate);
+    }
     
     const order = new Order(orderData);
     await order.save();
@@ -87,6 +95,7 @@ router.post('/orders', async (req, res) => {
       order: order
     });
   } catch (error) {
+    console.error('Order creation error:', error);
     res.status(400).json({
       success: false,
       message: 'Error placing order',
