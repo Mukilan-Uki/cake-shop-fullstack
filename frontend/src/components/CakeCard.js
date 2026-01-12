@@ -56,12 +56,17 @@ const CakeCard = ({ cake }) => {
     <small className="text-muted ms-2">starting from</small>
   </div>
   
+  <div className="d-flex justify-content-between align-items-center mt-3">
+  <div>
+    <span className="fw-bold fs-4 text-apricot">${cake.price}</span>
+    <small className="text-muted ms-2">starting from</small>
+  </div>
+  
   <div className="d-flex gap-2">
     <button 
       className="btn btn-outline-apricot"
       onClick={(e) => {
         e.stopPropagation();
-        // Quick view functionality (we'll implement later)
         alert(`Quick view: ${cake.name}`);
       }}
       title="Quick View"
@@ -72,7 +77,6 @@ const CakeCard = ({ cake }) => {
       className="btn btn-frosting"
       onClick={(e) => {
         e.stopPropagation();
-        // Add to cart functionality
         alert(`Added ${cake.name} to cart!`);
       }}
     >
@@ -80,6 +84,7 @@ const CakeCard = ({ cake }) => {
       Add to Cart
     </button>
   </div>
+</div>
 </div>
           </div>
         </div>

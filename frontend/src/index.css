@@ -1,10 +1,22 @@
 /* Cake Shop Custom Styles */
 :root {
+  /* Color Palette */
+  --chocolate: #4A2C2A;
+  --cream: #FFF5E6;
   --apricot: #FF9E6D;
   --strawberry: #FF6B8B;
   --lavender: #9D5CFF;
-  --cream: #FFF9F5;
-  --chocolate: #4A2C2A;
+  --sprinkle-blue: #6AE1FF;
+  --sprinkle-pink: #FF9EF3;
+  
+  /* Bootstrap Overrides */
+  --bs-primary: var(--apricot);
+  --bs-secondary: var(--chocolate);
+  --bs-success: #28a745;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: var(--cream);
+  --bs-dark: var(--chocolate);
 }
 
 body {
@@ -29,14 +41,14 @@ body {
 .glass-card {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--apricot), var(--strawberry), var(--lavender));
+  background: linear-gradient(135deg, var(--apricot) 0%, var(--strawberry) 50%, var(--lavender) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,18 +56,18 @@ body {
 
 /* Custom Button */
 .btn-frosting {
-  background: linear-gradient(135deg, var(--apricot), var(--strawberry));
+  background: linear-gradient(135deg, var(--apricot) 0%, var(--strawberry) 100%);
   border: none;
   color: white;
+  padding: 0.75rem 2rem;
   border-radius: 50px;
-  padding: 12px 30px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .btn-frosting:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(255, 107, 139, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 139, 0.3);
   color: white;
 }
 
@@ -90,17 +102,17 @@ body {
 }
 
 /* Custom Utility Classes */
-.bg-apricot { background-color: var(--apricot) !important; }
-.bg-strawberry { background-color: var(--strawberry) !important; }
-.bg-lavender { background-color: var(--lavender) !important; }
-.bg-cream { background-color: var(--cream) !important; }
-.bg-chocolate { background-color: var(--chocolate) !important; }
-
+.text-chocolate { color: var(--chocolate) !important; }
+.text-cream { color: var(--cream) !important; }
 .text-apricot { color: var(--apricot) !important; }
 .text-strawberry { color: var(--strawberry) !important; }
 .text-lavender { color: var(--lavender) !important; }
-.text-cream { color: var(--cream) !important; }
-.text-chocolate { color: var(--chocolate) !important; }
+
+.bg-chocolate { background-color: var(--chocolate) !important; }
+.bg-cream { background-color: var(--cream) !important; }
+.bg-apricot { background-color: var(--apricot) !important; }
+.bg-strawberry { background-color: var(--strawberry) !important; }
+.bg-lavender { background-color: var(--lavender) !important; }
 
 .btn-outline-apricot {
   color: var(--apricot);
