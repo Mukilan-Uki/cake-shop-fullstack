@@ -5,15 +5,26 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require('cors');
+const emailRoutes = require('./routes/emailRoutes');
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 // Import routes
 const orderRoutes = require('./routes/orderRoutes');
 const cakeRoutes = require('./routes/cakeRoutes');
 
+app.use('/api/email', emailRoutes);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: '*', // Allow all origins temporarily for testing
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
   credentials: true
 }));
 

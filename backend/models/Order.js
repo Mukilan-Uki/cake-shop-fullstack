@@ -35,13 +35,9 @@ const orderSchema = new mongoose.Schema({
 //   next();
 // });
 
-orderSchema.pre('save', async function(next) {
-  try {
-    this.updatedAt = Date.now();
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
+// orderSchema.pre('save', function(next) {
+//   this.updatedAt = Date.now();
+//   next();
+// });
 
 module.exports = mongoose.model('Order', orderSchema);

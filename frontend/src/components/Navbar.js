@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/Images/logo.ico'
+import './Navbar.css';
 
 const Navbar = () => {
   const location = useLocation();
@@ -17,9 +19,11 @@ const Navbar = () => {
         {/* Logo */}
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <div className="bg-gradient-to-r from-apricot to-strawberry rounded-circle p-2 me-2">
-            <i className="bi bi-cake text-white fs-4"></i>
+            <i className="fs-4">
+                <img src={logo} alt="Logo" className="img-fluid" />
+            </i>
           </div>
-          <span className="font-script fs-3 gradient-text">Sweet Canvas</span>
+          <span className="font-script fs-3 gradient-text">Cube Cake</span>
         </Link>
 
         {/* Mobile Toggle */}

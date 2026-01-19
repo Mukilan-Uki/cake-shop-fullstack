@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
+const emailService = require('../utils/emailService');
 
 // Get all orders
 router.get('/orders', async (req, res) => {
@@ -88,12 +89,21 @@ router.post('/orders', async (req, res) => {
     
     const order = new Order(orderData);
     await order.save();
-    
-    res.json({
-      success: true,
-      message: 'Order placed successfully!',
-      order: order
-    });
+
+    emailService.sendOrderConfirmation(order)
+  .then(result => {
+    console.log('Email result:', result);
+  })
+  .catch(err => {
+    console.error('Email failed:', err);
+    // Order still saved successfully
+  });
+
+res.json({
+  success: true,
+  message: 'Order placed successfully! Check your email for confirmation.',
+  order
+});
   } catch (error) {
     console.error('Order creation error:', error);
     res.status(400).json({
