@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cake-shop-fullstack/static/css/main.5c0d3186.css",
+    "main.js": "/cake-shop-fullstack/static/js/main.660cbf3d.js",
+    "static/media/logo.ico": "/cake-shop-fullstack/static/media/logo.537bc9da261e0f009daa.ico",
+    "static/media/bootstrap-icons.woff?": "/cake-shop-fullstack/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/bootstrap-icons.woff2?": "/cake-shop-fullstack/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "index.html": "/cake-shop-fullstack/index.html",
+    "main.5c0d3186.css.map": "/cake-shop-fullstack/static/css/main.5c0d3186.css.map",
+    "main.660cbf3d.js.map": "/cake-shop-fullstack/static/js/main.660cbf3d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c0d3186.css",
+    "static/js/main.660cbf3d.js"
+  ]
+}
